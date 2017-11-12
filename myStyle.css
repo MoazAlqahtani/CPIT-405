@@ -25,7 +25,9 @@
 #mainTitle{
 border-top: 1px solid rgb(128, 128, 128);
 border-bottom: 1px solid rgb(128, 128, 128);
-padding-left: 3px; 
+padding-left: 3px;
+padding-top: 3px;
+padding-bottom: 3px; 
 }
 #mainTitle h5{
     display: inline;       
@@ -37,6 +39,7 @@ padding-left: 3px;
 
 .newsList ul li{
     list-style: none;
+    margin: 5px;
 }
 
 .newsList > li{
@@ -44,6 +47,7 @@ padding-left: 3px;
     border-bottom: 1px solid rgb(180, 180, 180); 
     padding-top: 5px; 
     padding-bottom: 5px; 
+    
     
     
 }
@@ -134,6 +138,31 @@ button{
 #headTitle{
     color: black;
 }
+
+
+#vote{
+    width:50px; 
+    text-align:center;
+  }
+
+  #up,#down{
+
+    font-size:25px;
+     color: black; 
+     background-color: #FFFFFF;
+  }
+
+  #num{
+    font-weight:bold;
+     margin: 0px;
+  }
+
+#mainTitle label{
+    
+        float: right;
+        margin-right: 5px;
+}
+
 
 
 

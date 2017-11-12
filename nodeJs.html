@@ -5,6 +5,11 @@
 </head>
 <body class="jsBody">
     <div class="jsContent">
+        <div id="vote">
+            <button id="up">&#708;</button>
+            <p id="num">0</p>
+            <button id="down">&#709;</button>
+        </div>
     <h1>Getting Started with Node.js</h1>
     <h2>Installation:</h2>
     <div id="Windows">
@@ -49,4 +54,28 @@
             </table>
     </div>
 </div>
+
+<script>
+
+var up = document.getElementById("up");
+var num = document.getElementById("num");
+var down = document.getElementById("down");
+
+up.addEventListener("click",function(){
+    var numInt = parseInt(num.innerHTML);
+    numInt++;
+    num.innerHTML = numInt;
+
+})
+
+down.addEventListener("click",function(){
+    var numInt = parseInt(num.innerHTML);
+    numInt--;
+    num.innerHTML = numInt;
+
+})
+
+
+
+</script>
 </body>

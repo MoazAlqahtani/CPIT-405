@@ -17,62 +17,42 @@
     </ul>
 </header>
 <div id="mainTitle">
-<h5 id="pageTitel">Main Stories</h5>
+<h5>Main Stories</h5>
 <h5>10/02/2017</h5>
+<label>sort by
+ <select id="selector">
+    <option value="sortN">Newest</option>
+    <option value="sortL">Like</option>
+    <option value="sortC">Comments</option>
+ </select>
+</label>
+
 </div>
 <div id="allList">
     <ul class="newsList">
-        <li>
+        <li class="lis">
             <a href="#">Getting Started with Node.js</a>
-            <ul><li>1 hour ago | 20 comment</li></ul>
+            <ul><li>36 likes | Sun Nov 12 2017 7:12:50 | 20 comment</li></ul>
         </li>
-        <li>
+        <li class="lis">
             <a href="#">Tesseract.js - Pure JavaScript OCR for 60 Language</a>
-            <ul><li>3 hour ago | 33 comment</li></ul>
+            <ul><li>56 likes | Sat Oct 12 2017 11:52:00 | 33 comment</li></ul>
         </li>
-        <li>
+        <li class="lis">
             <a href="#">No human genome has ever been completely sequenced</a>
-            <ul><li>3 hour ago | 15 comment</li></ul>
+            <ul><li>63 likes | Tus Sep 12 2017 1:22:11 | 15 comment</li></ul>
         </li>
-        <li>
+        <li class="lis">
             <a href="#">Show HN: Arxiv Vanity – Read academic papers from Arxiv as responsive web pages</a>
-            <ul><li>5 hour ago | 90 comment</li></ul>
+            <ul><li>101 likes | Wen Sep 12 2017 2:32:56 | 90 comment</li></ul>
         </li>
-        <li>
+        <li class="lis">
             <a href="#">Paw – macOS HTTP client for testing and describing APIs</a>
-            <ul><li>6 hour ago | 14 comment</li></ul>
+            <ul><li>89 likes | Fri Feb 12 2017 9:42:59 | 14 comment</li></ul>
         </li>
-        <li>
+        <li class="lis">
             <a href="#">Stripe Atlas: Getting your first 10 customers</a>
-            <ul><li>10 hour ago | 45 comment</li></ul>
-        </li>
-        <li>
-            <a href="#">Cray and Microsoft Bring Supercomputing to Azure</a>
-            <ul><li>11 hour ago | 30 comment</li></ul>
-        </li>
-        <li>
-            <a href="#">Intel vs. NuFlare in multi-beam race</a>
-            <ul><li>15 hour ago | 42 comment</li></ul>
-        </li>
-        <li>
-            <a href="#">Games Look Bad: HDR and Tone Mapping</a>
-            <ul><li>19 hour ago | 27 comment</li></ul>
-        </li>
-        <li>
-            <a href="#">Filesystem error handling</a>
-            <ul><li>1 day ago | 11 comment</li></ul>
-        </li>
-        <li>
-            <a href="#">Insects Are in Serious Trouble</a>
-            <ul><li>2 day ago | 42 comment</li></ul>
-        </li>
-        <li>
-            <a href="#">A Theory of Sequence Memory in Neocortex</a>
-            <ul><li>4 day ago | 22 comment</li></ul>
-        </li>
-        <li>
-            <a href="#">Yarn - Anew packagge manager for JavaScript</a>
-            <ul><li>1 week ago | 90 comment</li></ul>
+            <ul><li>36 likes | Sun Feb 12 2017 12:11:43 | 45 comment</li></ul>
         </li>
     </ul>
 </div>
@@ -87,4 +67,106 @@
     <p>Written in pure HTML | Hosted By:<a href="#"> SadSmile</a></p>
 </footer>
 </div>
+<script>
+
+var selector = document.getElementById("selector");
+
+selector.addEventListener("click",function(){
+    if(this.value == "sortL"){
+  var list, i, switching, b, shouldSwitch;
+  list = document.getElementsByClassName("newsList");
+  switching = true;
+
+  while (switching) {
+
+    switching = false;
+    b = list[0].getElementsByClassName("lis");
+
+    for (i = 0; i < (b.length - 1); i++) {
+
+      shouldSwitch = false;
+
+      var str = b[i].getElementsByTagName("li");
+      var res = str[0].innerText.split(" ", 1);
+      var str1 = b[i+1].getElementsByTagName("li");
+      var res1 = str1[0].innerText.split(" ", 1);
+      if (parseInt(res) < parseInt(res1)) {
+
+        shouldSwitch= true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+
+      b[i].parentNode.insertBefore(b[i + 1], b[i]);
+      switching = true;
+    }
+   }
+}else if(this.value == "sortC"){
+    var list, i, switching, b, shouldSwitch;
+  list = document.getElementsByClassName("newsList");
+  switching = true;
+
+  while (switching) {
+
+    switching = false;
+    b = list[0].getElementsByClassName("lis");
+
+    for (i = 0; i < (b.length - 1); i++) {
+
+      shouldSwitch = false;
+
+      var str = b[i].getElementsByTagName("li");
+      var res = str[0].innerText.split("|", 3);
+      var str1 = b[i+1].getElementsByTagName("li");
+      var res1 = str1[0].innerText.split("|", 3);
+      if (parseInt(res[2].split(" ",2)[1]) < parseInt(res1[2].split(" ",2)[1])) {
+
+        shouldSwitch= true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+
+      b[i].parentNode.insertBefore(b[i + 1], b[i]);
+      switching = true;
+    }
+   }
+}else if(this.value == "sortN"){
+    var list, i, switching, b, shouldSwitch;
+  list = document.getElementsByClassName("newsList");
+  switching = true;
+
+  while (switching) {
+
+    switching = false;
+    b = list[0].getElementsByClassName("lis");
+
+    for (i = 0; i < (b.length - 1); i++) {
+
+      shouldSwitch = false;
+
+      var str = b[i].getElementsByTagName("li");
+      var res = str[0].innerText.split("|", 2);
+      var str1 = b[i+1].getElementsByTagName("li");
+      var res1 = str1[0].innerText.split("|", 2);
+      var d1 = new Date (res[1]);
+      var d2 = new Date (res1[1]);
+      if (d1 < d2) {
+
+        shouldSwitch= true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+
+      b[i].parentNode.insertBefore(b[i + 1], b[i]);
+      switching = true;
+    }
+   }
+}
+  })
+ 
+
+</script>
 </body>
