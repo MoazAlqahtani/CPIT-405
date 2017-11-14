@@ -99,7 +99,7 @@
         var selector = document.getElementById("selector");
         selector.addEventListener("click", function () {
             if (selector.value == "sortL") {
-                console.log("sssssoooorrrrrrtttttttttttttplz")
+                
                 arrayObj.sort(function (first, second) {
                     if (first.like < second.like) {
                         return 1;
@@ -114,7 +114,7 @@
                 
 
             } else if (selector.value == "sortC") {
-                console.log("sssssoooorrrrrrtttttttttttttplz")
+                
                 arrayObj.sort(function (first, second) {
                     if (first.comments < second.comments) {
                         return 1;
@@ -129,7 +129,7 @@
                 
 
             } else if (selector.value == "sortN") {
-                console.log("sssssoooorrrrrrtttttttttttttplz")
+               
                 arrayObj.sort(function (first, second) {
                     var f = new Date (first.date);
                     var s = new Date (second.date);
